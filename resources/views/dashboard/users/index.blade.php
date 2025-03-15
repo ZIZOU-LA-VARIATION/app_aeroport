@@ -4,9 +4,9 @@
 @section('admin_layout')
     <div class="container">
         <div class="action-roles d-flex justify-content-end">
-            <a href="{{route('role_create')}}" type="button" class="btn btn-primary">Add new Role</a>
+            <a href="{{route('user.create')}}" type="button" class="btn btn-primary">Add new user</a>
         </div>
-        <div class="content-roles">
+        <div class="content-users">
                 
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -20,21 +20,24 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($roles as $role)
+                    @foreach ($users as $user)
                         <tr>
-                            <td> {{$role->name}} </td>
-                            <td> {{$role->description}} </td>
+                            <td> {{$user->name}} </td>
+                            <td> {{$user->email}} </td>
+                            <td> {{$user->phone}} </td>
+                            <td> {{$user->role->name}} </td>
                             <td class="d-flex align-items-center gap-1">
-                                <a href="{{route('role_edit', ['role' => $role->id])}}" class="btn btn-info">
+                                <a href="{{route('user.edit', ['user' => $user->id])}}" class="btn btn-info">
                                     <i class="ti ti-pencil"></i>
                                 </a>
-                                <form action="{{route('role_destroy', ['role' => $role->id])}}" method="post">
+                                <form action="{{route('user.destroy', ['user' => $user->id])}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button  class="btn btn-danger">

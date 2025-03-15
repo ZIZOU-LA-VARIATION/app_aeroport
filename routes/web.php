@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Userscontroller;
 
 Route::get('/', function () {
     return to_route('login');
@@ -33,3 +34,8 @@ Route::get('/role/edit/{role}', [App\Http\Controllers\RolesController::class, 'e
 
 // creation de la page d'affichage des rôles
 Route::put('/role/{role}', [App\Http\Controllers\RolesController::class, 'update'])->name('role_update');
+
+// creation des routes des utilisateurs
+
+Route::resource('user', Userscontroller::class);
+

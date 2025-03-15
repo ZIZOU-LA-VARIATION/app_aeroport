@@ -29,13 +29,21 @@
             <span class="hide-menu">UI COMPONENTS</span>
           </li>
           <li class="sidebar-item">
+            <a class="sidebar-link" href="{{route('user.index')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-article"></i>
+              </span>
+              <span class="hide-menu">Users</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('roles')}}" aria-expanded="false">
               <span>
                 <i class="ti ti-article"></i>
               </span>
               <span class="hide-menu">Rôles</span>
             </a>
-        </li> 
+          </li> 
         </ul>
       <!-- End Sidebar navigation -->
     </div>
