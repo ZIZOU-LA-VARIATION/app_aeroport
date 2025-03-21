@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,3 +34,7 @@ Route::get('/role/edit/{role}', [App\Http\Controllers\RolesController::class, 'e
 
 // creation de la page d'affichage des rôles
 Route::put('/role/{role}', [App\Http\Controllers\RolesController::class, 'update'])->name('role_update');
+
+
+// creation des rotes de ressource
+Route::resource('reservation',ReservationController::class);

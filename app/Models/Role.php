@@ -3,9 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class Role extends Model
 {
-    public $timestamps=false;
-    protected $fillable=['name','description'];
+    public $timestamps = false;
+    protected $fillable = ['name', 'description'];
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

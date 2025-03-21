@@ -50,6 +50,11 @@ class RolesController extends Controller
 
     public function destroy(Role $role){
         try{
+
+            if($role->users()->count() > 0){
+                throw new Exception('Cannot delete this role.');
+            }
+
             $role->delete();
 
             return redirect()->back()->with('success', 'Role Deleted successfully');

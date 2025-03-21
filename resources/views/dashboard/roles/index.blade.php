@@ -34,7 +34,7 @@
                                 <a href="{{route('role_edit', ['role' => $role->id])}}" class="btn btn-info">
                                     <i class="ti ti-pencil"></i>
                                 </a>
-                                <form action="{{route('role_destroy', ['role' => $role->id])}}" action="post">
+                                <form action="{{route('role_destroy', ['role' => $role->id])}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button  class="btn btn-danger">
